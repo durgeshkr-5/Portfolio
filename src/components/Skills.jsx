@@ -2,15 +2,30 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const skills = [
+  // Frontend
   { name: "React", icon: "⚛️" },
-  { name: "Tailwind CSS", icon: "💨" },
-  { name: "JavaScript", icon: "📟" },
+  { name: "Redux Toolkit", icon: "🔄" },
+  { name: "JavaScript (ES6+)", icon: "📟" },
   { name: "HTML5", icon: "🔤" },
   { name: "CSS3", icon: "🎨" },
+  { name: "Tailwind CSS", icon: "💨" },
+
+  // Backend
   { name: "Node.js", icon: "🌐" },
+  { name: "Express.js", icon: "🚀" },
   { name: "MongoDB", icon: "🍃" },
   { name: "Firebase", icon: "🔥" },
-  { name: "Redux", icon: "🔄" },
+  { name: "RESTful APIs", icon: "🔗" },
+
+  // Tools & Others
+  { name: "Git & GitHub", icon: "🐙" },
+  { name: "Postman", icon: "📮" },
+  { name: "VS Code", icon: "💻" },
+  { name: "Figma", icon: "🎯" },
+
+  // Computer Science Fundamentals
+  { name: "Data Structures & Algorithms", icon: "📊" },
+  { name: "System Design (Basics)", icon: "🏗️" }
 ];
 
 function Skills() {

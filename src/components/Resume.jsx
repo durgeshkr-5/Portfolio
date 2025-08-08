@@ -19,8 +19,9 @@ function Resume() {
         </motion.h2>
 
         <motion.a
-          href="/files/DurgeshKumar_Resume.pdf"
-          target="_blank"
+          href="/Durgesh_Kumar_Resume.pdf"
+          
+          download="Durgesh_Kumar_Resume.pdf"
           rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -39,23 +40,29 @@ function Resume() {
           viewport={{ once: true }}
           className="mt-10 text-left grid gap-4 sm:grid-cols-2"
         >
+          {/* Technical Skills */}
           <div>
             <h3 className="text-xl font-semibold mb-2 text-gray-900">
               🔧 Technical Skills
             </h3>
             <ul className="list-disc list-inside text-gray-700">
-              <li>HTML, CSS, JavaScript</li>
-              <li>React, Node.js, Express.js, Redux toolkit</li>
-              <li>MongoDB, Firebase, REST APIs</li>
+              <li>HTML5, CSS3, JavaScript (ES6+)</li>
+              <li>React, Redux Toolkit, Tailwind CSS</li>
+              <li>Node.js, Express.js, RESTful APIs</li>
+              <li>MongoDB, Firebase, Git & GitHub</li>
+              <li>Postman, VS Code, Figma</li>
+              <li>Data Structures & Algorithms, Basic System Design</li>
             </ul>
           </div>
+
+          {/* Education */}
           <div>
             <h3 className="text-xl font-semibold mb-2 text-gray-900">
               🎓 Education & Program
             </h3>
             <ul className="list-disc list-inside text-gray-700">
-              <li>Full Stack Web Development @ Masai School (2025)</li>
-              <li>B.Tech in Electronics & Communication Engineering (2021)</li>
+              <li>Full Stack Web Development, Masai School (Dec 2024 – Present)</li>
+              <li>B.Tech in Electronics & Communication Engineering (Sep 2017 – Oct 2021)</li>
             </ul>
           </div>
         </motion.div>
