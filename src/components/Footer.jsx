@@ -5,16 +5,19 @@ function Footer() {
   return (
     <footer className="bg-cyan-600 text-white py-6">
       <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+        
+        {/* Copyright */}
         <p className="text-sm text-center sm:text-left">
           © {new Date().getFullYear()} Durgesh Kumar. All rights reserved.
         </p>
-        <div className="flex space-x-4 text-xl">
+
+        {/* Social Icons */}
+        <div className="flex gap-6 text-xl">
           <a
             href="https://github.com/durgeshkr-5"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-gray-200 transition-colors duration-200"
-            aria-label="GitHub"
+            className="hover:text-gray-200 transition"
           >
             <FaGithub />
           </a>
@@ -22,8 +25,7 @@ function Footer() {
             href="https://www.linkedin.com/in/durgeshkr5/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-gray-200 transition-colors duration-200"
-            aria-label="LinkedIn"
+            className="hover:text-gray-200 transition"
           >
             <FaLinkedin />
           </a>

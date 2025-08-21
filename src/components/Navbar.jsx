@@ -1,24 +1,44 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolling(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close menu if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
 
   return (
     <nav
       className={`fixed w-full z-50 transition-shadow duration-300 ${
         scrolling ? "bg-white shadow-md" : "bg-white"
       }`}
+      ref={menuRef}
     >
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Logo */}
         <span className="text-2xl font-extrabold text-cyan-600 tracking-tight">
           Durgesh
         </span>
@@ -62,23 +82,25 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <ul
-        className={`md:hidden bg-white border-t border-gray-200 space-y-3 px-5 py-5 transition-all duration-300 overflow-hidden ${
+      <div
+        className={`md:hidden transition-all duration-300 overflow-hidden ${
           menuOpen ? "max-h-96" : "max-h-0"
         }`}
       >
-        {["about", "projects", "skills", "resume", "contact"].map((item) => (
-          <li key={item}>
-            <a
-              href={`#${item}`}
-              className="block text-gray-700 font-medium hover:text-cyan-600"
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </a>
-          </li>
-        ))}
-      </ul>
+        <ul className="bg-white border-t border-gray-200 space-y-3 px-5 py-5">
+          {["about", "projects", "skills", "resume", "contact"].map((item) => (
+            <li key={item}>
+              <a
+                href={`#${item}`}
+                className="block text-gray-700 font-medium hover:text-cyan-600"
+                onClick={() => setMenuOpen(false)} // close when link clicked
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 }

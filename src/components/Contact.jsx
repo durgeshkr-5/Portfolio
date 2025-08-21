@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { motion } from "framer-motion";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin } from "react-icons/fa";
 
 function Contact() {
   return (
@@ -7,17 +9,56 @@ function Contact() {
       id="contact"
       className="py-20 px-6 md:px-16 bg-gradient-to-b from-white to-cyan-50 text-gray-800"
     >
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-4xl mx-auto text-center">
+        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-cyan-600 mb-10"
+          className="text-4xl font-bold text-cyan-600 mb-6"
         >
           Contact Me
         </motion.h2>
+        <p className="text-gray-600 mb-12">
+          Let’s connect! Feel free to reach out for collaborations, projects, or just to say hi 👋
+        </p>
 
+        {/* Contact Info */}
+        <div className="grid sm:grid-cols-3 gap-6 mb-12 px-2">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex flex-col items-center bg-gradient-to-br from-white to-cyan-50/80 
+                       p-6 rounded-2xl shadow-xl border border-cyan-100 backdrop-blur-sm"
+          >
+            <FaEnvelope className="text-cyan-600 text-2xl mb-2" />
+            <a href="mailto:durgeshkr.ece@gmail.com" className="text-gray-700">
+              durgeshkr.ece@gmail.com
+            </a>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex flex-col items-center bg-gradient-to-br from-white to-cyan-50/80 
+                       p-6 rounded-2xl shadow-xl border border-cyan-100 backdrop-blur-sm"
+          >
+            <FaPhone className="text-cyan-600 text-2xl mb-2" />
+            <a href="tel:+917677667066" className="text-gray-700">
+              +91 7677667066
+            </a>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex flex-col items-center bg-gradient-to-br from-white to-cyan-50/80 
+                       p-6 rounded-2xl shadow-xl border border-cyan-100 backdrop-blur-sm"
+          >
+            <FaMapMarkerAlt className="text-cyan-600 text-2xl mb-2" />
+            <p className="text-gray-700">Bihar, India</p>
+          </motion.div>
+        </div>
+
+        {/* Form */}
         <motion.form
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -25,7 +66,9 @@ function Contact() {
           viewport={{ once: true }}
           action="mailto:durgesh.email@example.com"
           method="GET"
-          className="flex flex-col gap-5 bg-white/70 p-8 rounded-2xl shadow-lg backdrop-blur-sm border border-cyan-100"
+          className="flex flex-col gap-5 bg-gradient-to-br from-white to-cyan-50/80 
+                     w-[95%] sm:w-[90%] md:max-w-lg mx-auto p-6 sm:p-8 
+                     rounded-2xl shadow-xl border border-cyan-100 backdrop-blur-sm"
         >
           <input
             name="name"
@@ -54,6 +97,26 @@ function Contact() {
             📧 Send Message
           </button>
         </motion.form>
+
+        {/* Socials */}
+        <div className="mt-10 flex justify-center gap-6">
+          <a
+            href="https://github.com/durgeshkr-5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-700 hover:text-cyan-600 text-2xl transition"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/durgeshkr5/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-700 hover:text-cyan-600 text-2xl transition"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { motion } from "framer-motion";
-import profileImage from "../assets/profile.jpg";
+import profileImage from "../assets/profile.png";
 
 function About() {
   return (
@@ -21,7 +22,7 @@ function About() {
           <img
             src={profileImage}
             alt="Durgesh Kumar"
-            className="w-64 h-64 object-cover rounded-2xl shadow-lg border-4 border-cyan-100"
+            className="w-64 h-64 object-cover object-top rounded-2xl shadow-lg border-4 border-cyan-100"
           />
         </motion.div>
 

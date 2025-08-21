@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -18,19 +19,35 @@ function Resume() {
           Resume
         </motion.h2>
 
-        <motion.a
-          href="/Durgesh_Kumar_Resume.pdf"
-          
-          download="Durgesh_Kumar_Resume.pdf"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-cyan-700 transition-all duration-300 text-lg font-medium"
-        >
-          📄 Download Resume (PDF)
-        </motion.a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Download Resume */}
+          <motion.a
+            href="/Durgesh_Kumar_Resume.pdf"
+            download="Durgesh_Kumar_Resume.pdf"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-cyan-700 transition-all duration-300 text-lg font-medium"
+          >
+            📄 Download Resume
+          </motion.a>
+
+          {/* View Resume in new tab */}
+          <motion.a
+            href="https://drive.google.com/file/d/1q_dgf2G_KEf9cKAmF0JJakMHOFz5DZHL/view?usp=sharing" 
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="inline-block bg-gray-800 text-white px-6 py-3 rounded-xl shadow-md hover:bg-gray-900 transition-all duration-300 text-lg font-medium"
+          >
+            👀 View Resume
+          </motion.a>
+        </div>
 
         {/* Resume Highlights */}
         <motion.div
@@ -61,8 +78,12 @@ function Resume() {
               🎓 Education & Program
             </h3>
             <ul className="list-disc list-inside text-gray-700">
-              <li>Full Stack Web Development, Masai School (Dec 2024 – Present)</li>
-              <li>B.Tech in Electronics & Communication Engineering (Sep 2017 – Oct 2021)</li>
+              <li>
+                Full Stack Web Development, Masai School (Dec 2024 – Present)
+              </li>
+              <li>
+                B.Tech in Electronics & Communication Engineering (Sep 2017 – Oct 2021)
+              </li>
             </ul>
           </div>
         </motion.div>
