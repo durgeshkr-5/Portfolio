@@ -3,6 +3,18 @@ import React from "react";
 import { motion } from "framer-motion";
 
 function Resume() {
+  // ✅ Function to handle both download & open
+  const handleResumeClick = () => {
+    // Open in new tab
+    window.open("/Durgesh_Kumar_Resume.pdf", "_blank");
+
+    // Trigger download
+    const link = document.createElement("a");
+    link.href = "/Durgesh_Kumar_Resume.pdf";
+    link.download = "Durgesh_Kumar_Resume.pdf";
+    link.click();
+  };
+
   return (
     <section
       id="resume"
@@ -19,35 +31,17 @@ function Resume() {
           Resume
         </motion.h2>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* Download Resume */}
-          <motion.a
-            href="/Durgesh_Kumar_Resume.pdf"
-            download="Durgesh_Kumar_Resume.pdf"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-cyan-700 transition-all duration-300 text-lg font-medium"
-          >
-            📄 Download Resume
-          </motion.a>
-
-          {/* View Resume in new tab */}
-          <motion.a
-            href="https://drive.google.com/file/d/1q_dgf2G_KEf9cKAmF0JJakMHOFz5DZHL/view?usp=sharing" 
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="inline-block bg-gray-800 text-white px-6 py-3 rounded-xl shadow-md hover:bg-gray-900 transition-all duration-300 text-lg font-medium"
-          >
-            👀 View Resume
-          </motion.a>
-        </div>
+        {/* ✅ Single button for both Download + View */}
+        <motion.button
+          onClick={handleResumeClick}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-cyan-700 transition-all duration-300 text-lg font-medium cursor-pointer "
+        >
+          📄 Resume
+        </motion.button>
 
         {/* Resume Highlights */}
         <motion.div
